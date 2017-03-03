@@ -1,0 +1,50 @@
+allprojects {
+    repositories {
+        mavenLocal()
+    }
+	
+		buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+	
+	
+}
+	
+
+
+}
+
+
+subprojects { 
+
+
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+    version = '1.0'  
+	
+	sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+
+
+	dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR4"
+	}
+}
+	
+	
+
+
+
+	}
